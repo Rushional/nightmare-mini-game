@@ -5,6 +5,7 @@ import com.rushional.nightmare_game.models.squares.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// TODO: move that "5" elsewhere to make this extendable
 public class GameMap {
     private List<RowSlots> listRows;
 
@@ -13,12 +14,20 @@ public class GameMap {
         initiateSquares();
     }
 
-    public void putSquare(int row, int column, Square square) {
-        getSlot(row, column).putSquare(square);
+    public void putSquare(SquareCoordinates coordinates, Square square) {
+        getSlot(coordinates).putSquare(square);
     }
 
-    public SquareSlot getSlot(int row, int column) {
-        return listRows.get(row).getSlot(column);
+    public void putSquare(int row, int column, Square square) {
+        putSquare(new SquareCoordinates(row, column), square);
+    }
+
+    public Square getSquare(SquareCoordinates coordinates) {
+        return getSlot(coordinates).getSquare();
+    }
+
+    private SquareSlot getSlot(SquareCoordinates coordinates) {
+        return listRows.get(coordinates.getRow()).getSlot(coordinates.getColumn());
     }
 
     private void createSlotsMap() {
