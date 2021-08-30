@@ -1,4 +1,4 @@
 package com.rushional.nightmare_game.models.squares;
 
-public class BlockedSquare {
+public class BlockedSquare extends Square {
 }
