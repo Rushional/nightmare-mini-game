@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RowSlots {
-    private List<SquareSlot> row;
+    private final List<SquareSlot> row;
 
     public RowSlots() {
         row = new ArrayList<SquareSlot>();
