@@ -14,7 +14,7 @@ public class MapModel {
 
     public MapModel() {
         createSlotsMap();
-        initiateSquares();
+        initiateDefaultSquares();
     }
 
     public void putSquare(SquareCoordinates coords, Square square) {
@@ -63,8 +63,9 @@ public class MapModel {
         }
     }
 
-    //    TODO: Make a randomizer and probably move to a separate class
-    private void initiateSquares() {
+//    TODO: Make a randomizer and probably move to a separate class
+//     Also, move default initiation somewhere static
+    private void initiateDefaultSquares() {
         if (listRows == null) throw new RuntimeException();
         putSquare(0,0, new FilledSquare(SquareColor.BLUE));
         putSquare(1,0, new FilledSquare(SquareColor.RED));

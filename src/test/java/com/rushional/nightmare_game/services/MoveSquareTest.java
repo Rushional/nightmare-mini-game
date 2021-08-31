@@ -1,6 +1,6 @@
 package com.rushional.nightmare_game.services;
 
-import com.rushional.nightmare_game.exceptions.CoordsOutOfBoundsException;
+import com.rushional.nightmare_game.exceptions.*;
 import com.rushional.nightmare_game.models.MapModel;
 import com.rushional.nightmare_game.models.SquareCoordinates;
 import com.rushional.nightmare_game.models.squares.FilledSquare;
@@ -38,4 +38,47 @@ class MoveSquareTest {
     }
 
 //        TODO: assert that all the exceptions are thrown correctly!
+    @Test
+    void throwsOriginEmpty() {
+        SquareCoordinates from0 = new SquareCoordinates(1, 2);
+        SquareCoordinates to0 = new SquareCoordinates(1, 3);
+        try {
+            MoveSquare.call(map, from0, to0);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail();
+        }
+        SquareCoordinates from1 = new SquareCoordinates(1, 2);
+        SquareCoordinates to1 = new SquareCoordinates(1, 1);
+        assertThrows(OriginIsEmptyException.class, ()-> {
+            MoveSquare.call(map, from1, to1);
+        });
+    }
+
+    @Test
+    void throwsSquareImmovable() {
+        SquareCoordinates from = new SquareCoordinates(0, 1);
+        SquareCoordinates to = new SquareCoordinates(1, 1);
+        assertThrows(SquareImmovableException.class, ()-> {
+            MoveSquare.call(map, from, to);
+        });
+    }
+
+    @Test
+    void throwsSquaresNotNeighbours() {
+        SquareCoordinates from = new SquareCoordinates(0, 0);
+        SquareCoordinates to = new SquareCoordinates(1, 1);
+        assertThrows(SquaresNotNeighboursException.class, ()-> {
+            MoveSquare.call(map, from, to);
+        });
+    }
+
+    @Test
+    void throwsTargetFilled() {
+        SquareCoordinates from = new SquareCoordinates(0, 0);
+        SquareCoordinates to = new SquareCoordinates(1, 0);
+        assertThrows(TargetIsFilledException.class, ()-> {
+            MoveSquare.call(map, from, to);
+        });
+    }
 }
