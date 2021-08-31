@@ -7,6 +7,11 @@ public class FilledSquare extends Square {
     private final SquareColor color;
 
     public FilledSquare(SquareColor color) {
+        super(true, true);
         this.color = color;
+    }
+
+    public FilledSquare copy() {
+        return new FilledSquare(color);
     }
 }

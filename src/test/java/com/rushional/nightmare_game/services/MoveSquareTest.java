@@ -27,5 +27,7 @@ class MoveSquareTest {
         assertTrue(moved instanceof FilledSquare);
         assertTrue(map.getSquare(new SquareCoordinates(1, 0)) instanceof FreeSquare);
         assertEquals(color, ((FilledSquare) moved).getColor());
+
+//        TODO: assert that all the exceptions are thrown correctly!
     }
 }

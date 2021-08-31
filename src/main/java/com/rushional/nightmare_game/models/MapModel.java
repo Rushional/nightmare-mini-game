@@ -1,9 +1,12 @@
 package com.rushional.nightmare_game.models;
 
+import com.rushional.nightmare_game.exceptions.CoordsOutOfBoundsException;
 import com.rushional.nightmare_game.models.squares.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.StrictMath.abs;
 
 // TODO: move that "5" elsewhere to make this extendable
 public class MapModel {
@@ -22,12 +25,34 @@ public class MapModel {
         putSquare(new SquareCoordinates(row, column), square);
     }
 
-    public Square getSquare(SquareCoordinates coordinates) {
-        return getSlot(coordinates).getSquare();
+    public Square getSquare(SquareCoordinates coords) {
+        if (isSquareInBounds(coords)) throw new CoordsOutOfBoundsException();
+        return getSlot(coords).getSquare();
+    }
+
+    private boolean isSquareInBounds(SquareCoordinates coords) {
+        if (coords.getRow() < 0 || coords.getRow() > 5) return true;
+        if (coords.getColumn() < 0 || coords.getColumn() > 5) return true;
+        return false;
     }
 
     private SquareSlot getSlot(SquareCoordinates coordinates) {
         return listRows.get(coordinates.getRow()).getSlot(coordinates.getColumn());
+    }
+
+    public static boolean areNeighbours(SquareCoordinates from, SquareCoordinates to) {
+        int row1 = from.getRow();
+        int row2 = to.getRow();
+        int col1 = from.getColumn();
+        int col2 = to.getColumn();
+        return (
+                (row1 == row2 && oneApart(col1, col2)) ||
+                (col1 == col2 && oneApart(row1, row2))
+        );
+    }
+
+    private static boolean oneApart(int x, int y) {
+        return abs(x - y) == 1;
     }
 
     private void createSlotsMap() {
