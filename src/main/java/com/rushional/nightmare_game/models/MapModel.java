@@ -17,8 +17,9 @@ public class MapModel {
         initiateSquares();
     }
 
-    public void putSquare(SquareCoordinates coordinates, Square square) {
-        getSlot(coordinates).putSquare(square);
+    public void putSquare(SquareCoordinates coords, Square square) {
+        if (isSquareOutOfBounds(coords)) throw new CoordsOutOfBoundsException();
+        getSlot(coords).putSquare(square);
     }
 
     public void putSquare(int row, int column, Square square) {
@@ -26,11 +27,11 @@ public class MapModel {
     }
 
     public Square getSquare(SquareCoordinates coords) {
-        if (isSquareInBounds(coords)) throw new CoordsOutOfBoundsException();
+        if (isSquareOutOfBounds(coords)) throw new CoordsOutOfBoundsException();
         return getSlot(coords).getSquare();
     }
 
-    private boolean isSquareInBounds(SquareCoordinates coords) {
+    public boolean isSquareOutOfBounds(SquareCoordinates coords) {
         if (coords.getRow() < 0 || coords.getRow() > 5) return true;
         if (coords.getColumn() < 0 || coords.getColumn() > 5) return true;
         return false;
