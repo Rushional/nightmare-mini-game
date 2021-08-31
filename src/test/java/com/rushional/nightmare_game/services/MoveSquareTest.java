@@ -7,7 +7,6 @@ import com.rushional.nightmare_game.models.squares.FilledSquare;
 import com.rushional.nightmare_game.models.squares.FreeSquare;
 import com.rushional.nightmare_game.models.squares.Square;
 import com.rushional.nightmare_game.models.squares.SquareColor;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -37,7 +36,7 @@ class MoveSquareTest {
         assertEquals(color, ((FilledSquare) moved).getColor());
     }
 
-//        TODO: assert that all the exceptions are thrown correctly!
+//    TODO: assert that all the exceptions are thrown correctly!
     @Test
     void throwsOriginEmpty() {
         SquareCoordinates from0 = new SquareCoordinates(1, 2);

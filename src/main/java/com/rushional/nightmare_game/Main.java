@@ -9,8 +9,8 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        MapView mapView = new MapView();
         MapModel mapModel = new MapModel();
+        MapView mapView = new MapView(mapModel);
         JFrame window = new MyWindow(mapView, mapModel);
     }
 }

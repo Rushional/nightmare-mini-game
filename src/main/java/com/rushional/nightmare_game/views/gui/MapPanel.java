@@ -1,6 +1,7 @@
 package com.rushional.nightmare_game.views.gui;
 
 import com.rushional.nightmare_game.models.MapModel;
+import com.rushional.nightmare_game.services.DrawMap;
 import com.rushional.nightmare_game.views.MapView;
 
 import java.awt.*;
@@ -21,6 +22,7 @@ public class MapPanel extends DrawPanel {
     {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D)g;
+        DrawMap.call(mapView, g2d);
 //        call some fancy service to draw everything that has ever existed
     }
 }
