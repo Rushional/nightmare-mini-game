@@ -3,7 +3,7 @@ package com.rushional.nightmare_game.services;
 import com.rushional.nightmare_game.exceptions.CoordinatesInvalidException;
 import com.rushional.nightmare_game.exceptions.SquaresNotNeighboursException;
 import com.rushional.nightmare_game.exceptions.WrongSquareTypeException;
-import com.rushional.nightmare_game.models.GameMap;
+import com.rushional.nightmare_game.models.MapModel;
 import com.rushional.nightmare_game.models.SquareCoordinates;
 import com.rushional.nightmare_game.models.squares.FilledSquare;
 import com.rushional.nightmare_game.models.squares.FreeSquare;
@@ -13,7 +13,7 @@ import com.rushional.nightmare_game.models.squares.SquareColor;
 import static java.lang.StrictMath.abs;
 
 public class MoveSquare {
-    public static void call(GameMap map, SquareCoordinates fromCoordinates, SquareCoordinates toCoordinates)
+    public static void call(MapModel map, SquareCoordinates fromCoordinates, SquareCoordinates toCoordinates)
             throws CoordinatesInvalidException, SquaresNotNeighboursException, WrongSquareTypeException {
         validateCoordinates(fromCoordinates, toCoordinates);
         validateNeighbours(fromCoordinates, toCoordinates);

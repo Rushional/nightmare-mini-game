@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 // TODO: move that "5" elsewhere to make this extendable
-public class GameMap {
+public class MapModel {
     private List<RowSlots> listRows;
 
-    public GameMap() {
+    public MapModel() {
         createSlotsMap();
         initiateSquares();
     }

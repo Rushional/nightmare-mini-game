@@ -1,6 +1,6 @@
 package com.rushional.nightmare_game.services;
 
-import com.rushional.nightmare_game.models.GameMap;
+import com.rushional.nightmare_game.models.MapModel;
 import com.rushional.nightmare_game.models.SquareCoordinates;
 import com.rushional.nightmare_game.models.squares.FilledSquare;
 import com.rushional.nightmare_game.models.squares.FreeSquare;
@@ -14,7 +14,7 @@ class MoveSquareTest {
 
     @Test
     void call() {
-        GameMap map = new GameMap();
+        MapModel map = new MapModel();
         SquareCoordinates fromCoordinates = new SquareCoordinates(1, 0);
         SquareColor color = ((FilledSquare) map.getSquare(fromCoordinates)).getColor();
         try {
