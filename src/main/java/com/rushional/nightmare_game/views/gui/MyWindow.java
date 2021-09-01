@@ -9,8 +9,8 @@ import java.awt.*;
 public class MyWindow extends JFrame {
     public MyWindow(MapView mapView, MapModel mapModel) {
         super("Nightmare Realm's Mini Game");
-        MapPanel mapPanel = new MapPanel(mapView, mapModel);
         InfoPanel infoPanel = new InfoPanel();
+        MapPanel mapPanel = new MapPanel(mapView, mapModel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addComponentsToPane(mapPanel, infoPanel);
 //        Needed to center the frame with setLocationRelativeTo(null)
@@ -22,20 +22,20 @@ public class MyWindow extends JFrame {
 
     private void addComponentsToPane(MapPanel mapPanel, InfoPanel infoPanel) {
         setLayout(new GridBagLayout());
+        GridBagConstraints infoConstraints = new GridBagConstraints();
+        infoConstraints.fill = GridBagConstraints.NONE;
+        infoConstraints.weightx = 0;
+        infoConstraints.weighty = 0;
+        infoConstraints.gridx = 0;
+        infoConstraints.gridy = 0;
+        add(infoPanel, infoConstraints);
+
         GridBagConstraints mapConstraints = new GridBagConstraints();
         mapConstraints.fill = GridBagConstraints.NONE;
         mapConstraints.weightx = 0;
         mapConstraints.weighty = 0;
         mapConstraints.gridx = 0;
-        mapConstraints.gridy = 0;
+        mapConstraints.gridy = 1;
         add(mapPanel, mapConstraints);
-
-        GridBagConstraints infoConstraints = new GridBagConstraints();
-        infoConstraints.fill = GridBagConstraints.NONE;
-        infoConstraints.weightx = 0;
-        infoConstraints.weighty = 0;
-        infoConstraints.gridx = 1;
-        infoConstraints.gridy = 0;
-        add(infoPanel, infoConstraints);
     }
 }

@@ -11,4 +11,8 @@ public class GraphicsCoordinates {
         this.x = x;
         this.y = y;
     }
+
+    public static GraphicsCoordinates shift(GraphicsCoordinates origin, int x, int y) {
+        return new GraphicsCoordinates(origin.getX() + x, origin.getY() + y);
+    }
 }

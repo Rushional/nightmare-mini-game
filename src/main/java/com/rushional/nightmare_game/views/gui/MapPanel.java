@@ -14,7 +14,7 @@ public class MapPanel extends DrawPanel {
         this.mapView = mapView;
         this.mapModel = mapModel;
         setBackground(new Color(235, 240, 255));
-        setPreferredSize(new Dimension(700, 700));
+        setPreferredSize(new Dimension(475, 475));
     }
 
     @Override
