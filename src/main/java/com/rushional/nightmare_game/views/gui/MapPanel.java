@@ -22,4 +22,8 @@ public class MapPanel extends DrawPanel {
         DrawMap.call(mapView, g2d);
 //        call some fancy service to draw everything that has ever existed
     }
+
+    public void setMapListener(Object monitor, MapListener mapListener) {
+        addMouseListener(mapListener);
+    }
 }
