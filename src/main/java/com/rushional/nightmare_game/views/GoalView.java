@@ -17,7 +17,7 @@ public class GoalView {
         goalRowList = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             GraphicsCoordinates coords = goalShift(i);
-            SquareView squareView = new SquareView(new FilledSquare(model.getColor(i)), coords);
+            SquareView squareView = new SquareView(new FilledSquare(model.getColor(i)), null, coords);
             goalRowList.add(i, squareView);
         }
     }

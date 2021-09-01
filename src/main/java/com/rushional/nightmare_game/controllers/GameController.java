@@ -26,5 +26,6 @@ public class GameController {
 
     public void startGame() {
         gameView.initiateGraphics();
+        gameView.turnOnInput();
     }
 }

@@ -18,7 +18,7 @@ public class MoveSquare {
         if (!originSq.isFilled()) throw new OriginIsEmptyException();
         if (!originSq.isMovable()) throw new SquareImmovableException();
         if (targetSq.isFilled()) throw new TargetIsFilledException();
-        map.putSquare(((FilledSquare) originSq).copy());
-        map.putSquare(new FreeSquare(from));
+        map.putSquare(((FilledSquare) originSq).copy(), to);
+        map.putSquare(new FreeSquare(), from);
     }
 }

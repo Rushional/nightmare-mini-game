@@ -18,9 +18,9 @@ class MapModelTest {
 
     @Test
     void putSquare() {
+        Square freeSquare = new FreeSquare();
         SquareCoordinates coords = new SquareCoordinates(0, 0);
-        Square freeSquare = new FreeSquare(coords);
-        mapModel.putSquare(freeSquare);
+        mapModel.putSquare(freeSquare, coords );
         Square queriedSquare = mapModel.getSquare(coords);
         assertFalse(queriedSquare.isFilled());
         assertFalse(queriedSquare.isMovable());

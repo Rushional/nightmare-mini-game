@@ -8,13 +8,19 @@ public class GameView {
     private MapView mapView;
     private GoalView goalView;
     private MyWindow window;
+    private MapModel mapModel;
 
     public GameView(MapModel mapModel, GoalModel goalModel) {
+        this.mapModel = mapModel;
         mapView = new MapView(mapModel);
         goalView = new GoalView(goalModel);
     }
 
     public void initiateGraphics() {
-        window = new MyWindow(mapView, goalView);
+        window = new MyWindow(mapView, goalView, mapModel);
+    }
+
+    public void turnOnInput() {
+        window.getMapPanel().initMapListener();
     }
 }

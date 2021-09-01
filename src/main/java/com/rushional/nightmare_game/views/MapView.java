@@ -26,8 +26,8 @@ public class MapView {
     public MapView(MapModel mapModel) {
         this.mapModel = mapModel;
         for (int i = 0; i < 5; i++) {
-            GraphicsCoordinates coords = calcShift(i, mapInceptionPoint);
-            RowView rowView = new RowView(mapModel.getRow(i), coords);
+            GraphicsCoordinates shiftedInception = calcShift(i, mapInceptionPoint);
+            RowView rowView = new RowView(mapModel.getRow(i), shiftedInception, i);
             rowViews.add(rowView);
         }
     }

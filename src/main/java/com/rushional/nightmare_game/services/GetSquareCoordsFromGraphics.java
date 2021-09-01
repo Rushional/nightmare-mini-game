@@ -8,11 +8,12 @@ import com.rushional.nightmare_game.views.gui.GraphicsCoordinates;
 import java.util.List;
 
 public class GetSquareCoordsFromGraphics {
-    public SquareCoordinates call(GraphicsCoordinates grCoords, MapView mapView) {
+    public static SquareCoordinates call(GraphicsCoordinates grCoords, MapView mapView) {
         List<SquareView> allSquares = mapView.getAllSquareViews();
         for (SquareView view : allSquares) {
-            if (view.getRectangle().contains(grCoords.getX(), grCoords.getY()))
-                return view.getSquare().getCoordinates();
+            if (view.getRectangle().contains(grCoords.getX(), grCoords.getY())) {
+                return view.getSquareCoordinates();
+            }
         }
         return null;
     }
