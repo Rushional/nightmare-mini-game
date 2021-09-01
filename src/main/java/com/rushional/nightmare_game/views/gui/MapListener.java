@@ -1,5 +1,7 @@
 package com.rushional.nightmare_game.views.gui;
 
+import com.rushional.nightmare_game.models.SquareCoordinates;
+import com.rushional.nightmare_game.services.GetSquareCoordsFromGraphics;
 import lombok.Getter;
 
 import javax.swing.event.MouseInputAdapter;
@@ -10,12 +12,6 @@ public class MapListener extends MouseInputAdapter {
     @Getter
     private ClickCoordinates clickCoordinates = null;
     private Point pressedPoint;
-    Object monitor;
-
-    public MapListener(Object monitor) {
-        super();
-        this.monitor = monitor;
-    }
 
     public void mousePressed(MouseEvent e)
     {
@@ -26,8 +22,6 @@ public class MapListener extends MouseInputAdapter {
     {
         Point releasedPoint = e.getPoint();
         clickCoordinates = new ClickCoordinates(pressedPoint, releasedPoint);
-        synchronized (monitor) {
-            monitor.notify();
-        }
+//        SquareCoordinates sqCoords = GetSquareCoordsFromGraphics
     }
 }

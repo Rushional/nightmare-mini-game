@@ -40,6 +40,17 @@ public class MapView {
         return rowViews.get(coords.getRow()).getSquareView(coords.getColumn());
     }
 
+    public List<SquareView> getAllSquareViews() {
+        ArrayList<SquareView> all = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            RowView currentRow = getRowView(i);
+            for (int j = 0; j < 5; j++) {
+                all.add(currentRow.getSquareView(j));
+            }
+        }
+        return all;
+    }
+
     private GraphicsCoordinates calcShift(int row, GraphicsCoordinates inception) {
         return GraphicsCoordinates.shift(
                 inception, 0, row * (MapView.getSquareSidePx() + MapView.getVerticalGap())

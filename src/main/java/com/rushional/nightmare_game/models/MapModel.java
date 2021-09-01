@@ -17,15 +17,11 @@ public class MapModel {
         createEmptyRows();
     }
 
-    public void putSquare(SquareCoordinates coords, Square square) {
+    public void putSquare(Square square) {
+        SquareCoordinates coords = square.getCoordinates();
         if (isSquareOutOfBounds(coords)) throw new CoordsOutOfBoundsException();
         listRows.get(coords.getRow()).putSquare(coords.getColumn(), square);
     }
-
-    public void putSquare(int row, int column, Square square) {
-        putSquare(new SquareCoordinates(row, column), square);
-    }
-
     public Square getSquare(SquareCoordinates coords) {
         if (isSquareOutOfBounds(coords)) throw new CoordsOutOfBoundsException();
         return listRows.get(coords.getRow()).getSquare(coords.getColumn());

@@ -9,13 +9,13 @@ import java.awt.*;
 @Getter
 public class SquareView {
     private final Square square;
-    private final GraphicsCoordinates coordinates;
+    private final GraphicsCoordinates inception;
     private final Rectangle rectangle;
 
-    public SquareView(Square square, GraphicsCoordinates coords) {
+    public SquareView(Square square, GraphicsCoordinates inception) {
         this.square = square;
-        this.coordinates = coords;
-        rectangle = new Rectangle(coords.getX(), coords.getY(), getSide(), getSide());
+        this.inception = inception;
+        rectangle = new Rectangle(inception.getX(), inception.getY(), getSide(), getSide());
     }
 
     private static int getSide() {
