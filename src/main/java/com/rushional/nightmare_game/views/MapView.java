@@ -14,18 +14,19 @@ public class MapView {
     MapModel mapModel;
 //    TODO: move somewhere better
     @Getter
-    static final int squareSidePx = 70;
+    private static final int squareSidePx = 70;
     @Getter
-    static final int horizontalGap = 5;
+    private static final int horizontalGap = 5;
     @Getter
-    static final int verticalGap = 5;
+    private static final int verticalGap = 5;
+    @Getter
+    private static final GraphicsCoordinates mapInceptionPoint = new GraphicsCoordinates(50, 10);
 
 
     public MapView(MapModel mapModel) {
         this.mapModel = mapModel;
-        GraphicsCoordinates mapInception = new GraphicsCoordinates(50, 50);
         for (int i = 0; i < 5; i++) {
-            GraphicsCoordinates coords = calcShift(i, mapInception);
+            GraphicsCoordinates coords = calcShift(i, mapInceptionPoint);
             RowView rowView = new RowView(mapModel.getRow(i), coords);
             rowViews.add(rowView);
         }

@@ -1,6 +1,9 @@
 package com.rushional.nightmare_game.services;
 
-import com.rushional.nightmare_game.models.squares.*;
+import com.rushional.nightmare_game.models.squares.BlockedSquare;
+import com.rushional.nightmare_game.models.squares.FilledSquare;
+import com.rushional.nightmare_game.models.squares.FreeSquare;
+import com.rushional.nightmare_game.models.squares.Square;
 
 import java.awt.*;
 

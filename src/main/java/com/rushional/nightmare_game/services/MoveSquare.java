@@ -1,6 +1,9 @@
 package com.rushional.nightmare_game.services;
 
-import com.rushional.nightmare_game.exceptions.*;
+import com.rushional.nightmare_game.exceptions.OriginIsEmptyException;
+import com.rushional.nightmare_game.exceptions.SquareImmovableException;
+import com.rushional.nightmare_game.exceptions.SquaresNotNeighboursException;
+import com.rushional.nightmare_game.exceptions.TargetIsFilledException;
 import com.rushional.nightmare_game.models.MapModel;
 import com.rushional.nightmare_game.models.SquareCoordinates;
 import com.rushional.nightmare_game.models.squares.FilledSquare;

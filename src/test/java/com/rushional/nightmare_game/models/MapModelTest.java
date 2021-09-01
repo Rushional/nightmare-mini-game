@@ -12,7 +12,7 @@ class MapModelTest {
 
     @BeforeEach
     void init() {
-        mapModel = new MapModel();
+        mapModel = MapModel.createDefaultMap();
     }
 
 

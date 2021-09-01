@@ -12,9 +12,9 @@ import static java.lang.StrictMath.abs;
 public class MapModel {
     private List<Row> listRows;
 
+//    TODO: Make a randomizer and probably move to a separate class
     public MapModel() {
         createEmptyRows();
-        initiateDefaultSquares();
     }
 
     public void putSquare(SquareCoordinates coords, Square square) {
@@ -63,39 +63,41 @@ public class MapModel {
         }
     }
 
-//    TODO: Make a randomizer and probably move to a separate class
-//     Also, move default initiation somewhere static
-    private void initiateDefaultSquares() {
-        if (listRows == null) throw new RuntimeException();
-        initSquare(0,0, new FilledSquare(SquareColor.BLUE));
-        initSquare(1,0, new FilledSquare(SquareColor.RED));
-        initSquare(2,0, new FilledSquare(SquareColor.GREEN));
-        initSquare(3,0, new FilledSquare(SquareColor.BLUE));
-        initSquare(4,0, new FilledSquare(SquareColor.RED));
 
-        initSquare(0, 1, new BlockedSquare());
-        initSquare(1, 1, new FreeSquare());
-        initSquare(2, 1, new BlockedSquare());
-        initSquare(3, 1, new FreeSquare());
-        initSquare(4, 1, new BlockedSquare());
+//    TODO: move default initiation somewhere static
+    public static MapModel createDefaultMap() {
+        MapModel mapModel = new MapModel();
+        if (mapModel.listRows == null) throw new RuntimeException();
+        mapModel.initSquare(0,0, new FilledSquare(SquareColor.BLUE));
+        mapModel.initSquare(1,0, new FilledSquare(SquareColor.RED));
+        mapModel.initSquare(2,0, new FilledSquare(SquareColor.GREEN));
+        mapModel.initSquare(3,0, new FilledSquare(SquareColor.BLUE));
+        mapModel.initSquare(4,0, new FilledSquare(SquareColor.RED));
 
-        initSquare(0,2, new FilledSquare(SquareColor.GREEN));
-        initSquare(1,2, new FilledSquare(SquareColor.GREEN));
-        initSquare(2,2, new FilledSquare(SquareColor.RED));
-        initSquare(3,2, new FilledSquare(SquareColor.BLUE));
-        initSquare(4,2, new FilledSquare(SquareColor.RED));
+        mapModel.initSquare(0, 1, new BlockedSquare());
+        mapModel.initSquare(1, 1, new FreeSquare());
+        mapModel.initSquare(2, 1, new BlockedSquare());
+        mapModel.initSquare(3, 1, new FreeSquare());
+        mapModel.initSquare(4, 1, new BlockedSquare());
 
-        initSquare(0, 3, new BlockedSquare());
-        initSquare(1, 3, new FreeSquare());
-        initSquare(2, 3, new BlockedSquare());
-        initSquare(3, 3, new FreeSquare());
-        initSquare(4, 3, new BlockedSquare());
+        mapModel.initSquare(0,2, new FilledSquare(SquareColor.GREEN));
+        mapModel.initSquare(1,2, new FilledSquare(SquareColor.GREEN));
+        mapModel.initSquare(2,2, new FilledSquare(SquareColor.RED));
+        mapModel.initSquare(3,2, new FilledSquare(SquareColor.BLUE));
+        mapModel.initSquare(4,2, new FilledSquare(SquareColor.RED));
 
-        initSquare(0,4, new FilledSquare(SquareColor.BLUE));
-        initSquare(1,4, new FilledSquare(SquareColor.BLUE));
-        initSquare(2,4, new FilledSquare(SquareColor.RED));
-        initSquare(3,4, new FilledSquare(SquareColor.GREEN));
-        initSquare(4,4, new FilledSquare(SquareColor.GREEN));
+        mapModel.initSquare(0, 3, new BlockedSquare());
+        mapModel.initSquare(1, 3, new FreeSquare());
+        mapModel.initSquare(2, 3, new BlockedSquare());
+        mapModel.initSquare(3, 3, new FreeSquare());
+        mapModel.initSquare(4, 3, new BlockedSquare());
+
+        mapModel.initSquare(0,4, new FilledSquare(SquareColor.BLUE));
+        mapModel.initSquare(1,4, new FilledSquare(SquareColor.BLUE));
+        mapModel.initSquare(2,4, new FilledSquare(SquareColor.RED));
+        mapModel.initSquare(3,4, new FilledSquare(SquareColor.GREEN));
+        mapModel.initSquare(4,4, new FilledSquare(SquareColor.GREEN));
+        return mapModel;
     }
 
     private void initSquare(int row, int col, Square square) {

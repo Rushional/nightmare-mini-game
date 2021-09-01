@@ -1,9 +1,7 @@
 package com.rushional.nightmare_game.views;
 
 import com.rushional.nightmare_game.models.Row;
-import com.rushional.nightmare_game.models.SquareCoordinates;
 import com.rushional.nightmare_game.views.gui.GraphicsCoordinates;
-import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;

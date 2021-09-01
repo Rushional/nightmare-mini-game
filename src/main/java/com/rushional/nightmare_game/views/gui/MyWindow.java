@@ -1,16 +1,18 @@
 package com.rushional.nightmare_game.views.gui;
 
+import com.rushional.nightmare_game.models.GoalModel;
 import com.rushional.nightmare_game.models.MapModel;
+import com.rushional.nightmare_game.views.GoalView;
 import com.rushional.nightmare_game.views.MapView;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MyWindow extends JFrame {
-    public MyWindow(MapView mapView, MapModel mapModel) {
+    public MyWindow(MapView mapView, GoalView goalView) {
         super("Nightmare Realm's Mini Game");
-        InfoPanel infoPanel = new InfoPanel();
-        MapPanel mapPanel = new MapPanel(mapView, mapModel);
+        InfoPanel infoPanel = new InfoPanel(goalView);
+        MapPanel mapPanel = new MapPanel(mapView);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addComponentsToPane(mapPanel, infoPanel);
 //        Needed to center the frame with setLocationRelativeTo(null)
