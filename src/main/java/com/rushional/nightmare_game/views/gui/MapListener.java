@@ -1,5 +1,6 @@
 package com.rushional.nightmare_game.views.gui;
 
+import com.rushional.nightmare_game.controllers.InputController;
 import com.rushional.nightmare_game.models.MapModel;
 import com.rushional.nightmare_game.models.SquareCoordinates;
 import com.rushional.nightmare_game.services.GetSquareCoordsFromGraphics;
@@ -14,14 +15,16 @@ import java.awt.event.MouseEvent;
 public class MapListener extends MouseInputAdapter {
     private MapView mapView;
     private MapModel mapModel;
+    private InputController controller;
 
     @Getter
     private ClickCoordinates clickCoordinates = null;
     private Point pressedPoint;
 
-    public MapListener(MapView mapView, MapModel mapModel) {
+    public MapListener(MapView mapView, MapModel mapModel, InputController controller) {
         this.mapView = mapView;
         this.mapModel = mapModel;
+        this.controller = controller;
     }
 
     public void mousePressed(MouseEvent e)
@@ -37,13 +40,7 @@ public class MapListener extends MouseInputAdapter {
                 new GraphicsCoordinates(pressedPoint.x, pressedPoint.y), mapView);
         SquareCoordinates to = GetSquareCoordsFromGraphics.call(
                 new GraphicsCoordinates(releasedPoint.x, releasedPoint.y), mapView);
-//        TODO: This is TEMPORARY. Should call InputController. Maybe rename the controller too.
-        try {
-            MoveSquare.call(mapModel, from, to);
-            System.out.println("Successfully moved");
-        } catch (Exception ex) {
-            System.out.println(ex.getClass());
-        }
-        ((MapPanel)e.getSource()).repaint();
+        controller.resolveMoveAttempt(from, to);
+
     }
 }

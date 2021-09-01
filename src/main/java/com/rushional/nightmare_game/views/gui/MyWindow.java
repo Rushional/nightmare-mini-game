@@ -1,8 +1,8 @@
 package com.rushional.nightmare_game.views.gui;
 
 import com.rushional.nightmare_game.models.MapModel;
+import com.rushional.nightmare_game.controllers.GuiController;
 import com.rushional.nightmare_game.views.GoalView;
-import com.rushional.nightmare_game.views.MapView;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -12,10 +12,10 @@ import java.awt.*;
 public class MyWindow extends JFrame {
     private final MapPanel mapPanel;
 
-    public MyWindow(MapView mapView, GoalView goalView, MapModel mapModel) {
+    public MyWindow(GuiController guiController, GoalView goalView, MapModel mapModel) {
         super("Nightmare Realm's Mini Game");
         InfoPanel infoPanel = new InfoPanel(goalView);
-        mapPanel = new MapPanel(mapView, mapModel);
+        mapPanel = new MapPanel(guiController, mapModel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addComponentsToPane(mapPanel, infoPanel);
 //        Needed to center the frame with setLocationRelativeTo(null)
