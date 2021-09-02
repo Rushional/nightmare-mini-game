@@ -10,7 +10,8 @@ import java.awt.*;
 public class GetSquareRGB {
     public static Color call(Square square) {
         if (square instanceof FreeSquare)
-            return new Color(158, 182, 238);
+//            return new Color(158, 182, 238);
+            return new Color(235, 240, 255);
         if (square instanceof BlockedSquare)
             return new Color(38, 11, 75);
         if (square instanceof FilledSquare) {

@@ -32,7 +32,6 @@ public class MapPanel extends DrawPanel {
         Graphics2D g2d = (Graphics2D)g;
         mapView = new MapView(mapModel);
         DrawMap.call(mapView, g2d);
-        System.out.println("Redrawn");
     }
 
     public void initMapListener() {

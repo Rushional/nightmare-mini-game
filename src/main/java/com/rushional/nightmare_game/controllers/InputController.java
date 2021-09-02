@@ -22,8 +22,7 @@ public class InputController {
             MoveSquare.call(mapModel, from, to);
             System.out.println("Successfully moved");
         } catch (Exception ex) {
-//            TODO: Make an exception handler
-            System.out.println(ex.getClass());
+            guiController.handleException(ex);
         }
         guiController.update();
         if (CheckVictory.call(mapModel, goalModel)) {

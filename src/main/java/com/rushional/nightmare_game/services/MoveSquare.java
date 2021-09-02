@@ -9,8 +9,9 @@ import com.rushional.nightmare_game.models.squares.Square;
 
 public class MoveSquare {
     public static void call(MapModel map, SquareCoordinates from, SquareCoordinates to)
-            throws SquaresNotNeighboursException, OriginIsEmptyException,
-            TargetIsFilledException, SquareImmovableException, MovingIntoItselfException {
+            throws SquaresNotNeighboursException, OriginIsEmptyException, TargetIsFilledException,
+            SquareImmovableException, MovingIntoItselfException, CoordinatesNullException {
+        if (from == null || to == null) throw new CoordinatesNullException();
         if (from.equals(to)) throw new MovingIntoItselfException();
         if (!MapModel.areNeighbours(from, to)) throw new SquaresNotNeighboursException();
         Square originSq = map.getSquare(from);
