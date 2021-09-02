@@ -10,11 +10,15 @@ import java.awt.*;
 
 public class MapPanel extends DrawPanel {
     private GuiController guiController;
+    private InputController inputController;
     private MapModel mapModel;
     private MapView mapView;
 
-    public MapPanel(GuiController guiController, MapModel mapModel) {
+    private MapListener mapListener;
+
+    public MapPanel(GuiController guiController, InputController inputController, MapModel mapModel) {
         this.guiController = guiController;
+        this.inputController = inputController;
         this.mapModel = mapModel;
         this.mapView = new MapView(mapModel);
         setBackground(new Color(235, 240, 255));
@@ -32,6 +36,11 @@ public class MapPanel extends DrawPanel {
     }
 
     public void initMapListener() {
-        addMouseListener(new MapListener(mapView, mapModel, new InputController(guiController, mapModel)));
+        mapListener = new MapListener(mapView, mapModel, inputController);
+        addMouseListener(mapListener);
+    }
+
+    public void removeMapListener() {
+        removeMouseListener(mapListener);
     }
 }

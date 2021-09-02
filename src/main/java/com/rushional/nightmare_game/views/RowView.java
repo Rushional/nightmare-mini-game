@@ -11,7 +11,6 @@ import java.util.List;
 public class RowView {
     private List<SquareView> squareViewsList;
 
-//    TODO: should have nothing to do with Slots
     public RowView(Row rowModel, GraphicsCoordinates inception, int i) {
         squareViewsList = new ArrayList<>();
         for (int j = 0; j < 5; j++) {
