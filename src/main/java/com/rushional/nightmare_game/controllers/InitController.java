@@ -17,8 +17,8 @@ public class InitController {
     }
 
     private void initDefault() {
-        mapModel = MapModel.createDefaultMap();
-        goalModel = GoalModel.createDefaultGoal();
+        mapModel = new MapModel(true);
+        goalModel = new GoalModel(true);
         guiController = new GuiController(mapModel, goalModel);
     }
 

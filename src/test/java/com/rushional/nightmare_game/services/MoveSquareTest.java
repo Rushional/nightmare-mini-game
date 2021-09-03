@@ -17,7 +17,7 @@ class MoveSquareTest {
 
     @BeforeEach
     void init() {
-        map = MapModel.createDefaultMap();
+        map = new MapModel(false);
     }
 
     @Test

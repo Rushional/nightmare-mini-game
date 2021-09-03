@@ -12,8 +12,11 @@ class MapModelTest {
 
     @BeforeEach
     void init() {
-        mapModel = MapModel.createDefaultMap();
+        mapModel = new MapModel(false);
     }
+
+//    TODO: test random initiation. No exceptions thrown, all FilledSquares are set, 5 of each color,
+//      all other squares are correct
 
 
     @Test
